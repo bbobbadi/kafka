@@ -115,7 +115,7 @@ public class RocksDBStoreTest {
             Serdes.Long(),
             new NoOpRecordCollector(),
             new ThreadCache(new LogContext("testCache "), 0, new MockStreamsMetrics(new Metrics())));
-        tmpDir.setReadOnly();
+        assertTrue(tmpDir.setReadOnly());
 
         subject.openDB(tmpContext);
     }
