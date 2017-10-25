@@ -116,6 +116,7 @@ public class RocksDBStoreTest {
             new NoOpRecordCollector(),
             new ThreadCache(new LogContext("testCache "), 0, new MockStreamsMetrics(new Metrics())));
         assertTrue(tmpDir.setReadOnly());
+        assertTrue(tmpDir.setWritable(false));
         assertFalse(tmpDir.canWrite());
 
         subject.openDB(tmpContext);
